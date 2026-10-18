@@ -1,12 +1,13 @@
 """课程资料导航 · 本地预览服务器
 用 pythonw 后台常驻运行，日志写入 _serve.log（pythonw 无控制台，必须重定向输出）。
 """
+import os
 import sys
-from functools import partial
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 
-ROOT = r"C:\Users\windows\WorkBuddy\2026-10-18-09-48-50\course-nav\site"
-LOG = r"C:\Users\windows\WorkBuddy\2026-10-18-09-48-50\course-nav\_serve.log"
+BASE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(BASE, "site")
+LOG = os.path.join(BASE, "_serve.log")
 PORT = 8000
 
 log = open(LOG, "a", encoding="utf-8", buffering=1)
