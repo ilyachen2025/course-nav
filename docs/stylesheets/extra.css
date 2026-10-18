@@ -156,3 +156,121 @@
   font-size: 0.75rem;
   color: var(--md-default-fg-color--light);
 }
+
+/* ============================================================
+   标签筛选条
+   ============================================================ */
+
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.75rem;
+  margin: 0 0 1.5rem 0;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(79, 70, 229, 0.05), rgba(79, 70, 229, 0.015));
+}
+
+.tag-filter__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 70, 229, 0.28);
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.tag-chip:hover {
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+  transform: translateY(-1px);
+}
+
+.tag-chip:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 2px;
+}
+
+.tag-chip.is-active {
+  background: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+  color: #fff;
+}
+
+.tag-chip.is-active:hover {
+  color: #fff;
+  opacity: 0.92;
+}
+
+.tag-chip__count {
+  font-size: 0.68rem;
+  font-weight: 700;
+  opacity: 0.55;
+}
+
+.tag-chip.is-active .tag-chip__count {
+  opacity: 0.85;
+}
+
+.tag-filter__clear {
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px dashed rgba(79, 70, 229, 0.35);
+  background: transparent;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.tag-filter__clear:hover {
+  color: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+}
+
+.tag-filter__meta {
+  margin-left: auto;
+  font-size: 0.72rem;
+  color: var(--md-default-fg-color--light);
+  letter-spacing: 0.2px;
+}
+
+.tag-filter__empty {
+  margin: 1.2rem 0 0;
+  padding: 1.6rem;
+  text-align: center;
+  border: 1px dashed rgba(79, 70, 229, 0.3);
+  border-radius: 12px;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.85rem;
+}
+
+/* 被筛掉的卡片彻底隐藏（覆盖 Material 的列表样式） */
+.md-content .grid.cards li[hidden],
+.md-content .grid.cards li[hidden] * {
+  display: none !important;
+}
+
+/* 窄屏下筛选条纵向排布 */
+@media screen and (max-width: 600px) {
+  .tag-filter__meta {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+

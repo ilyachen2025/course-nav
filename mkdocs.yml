@@ -43,6 +43,9 @@ plugins:
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascripts/tags.js
+
 nav:
   - 首页: index.md
   - 入职必修: 01-onboarding.md
